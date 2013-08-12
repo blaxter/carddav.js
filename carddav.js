@@ -37,7 +37,7 @@
        
 	options = $.extend( {} , optionsDefaults , options );
        
-        $.ajax({
+        return $.ajax({
             type: 'PROPFIND',
             url: options.url,
             data: '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:">' + options.data + '</D:propfind>',
@@ -62,7 +62,7 @@
         
         options = $.extend( {} , optionsDefaults , options );
         
-        $.ajax({
+        return $.ajax({
             type: 'REPORT',
             url: options.url,
             data: options.realData || '<?xml version="1.0" encoding="utf-8"?><D:sync-collection xmlns:D="DAV:">'+ options.data + '</D:sync-collection>',
@@ -210,7 +210,7 @@
     
     carddav.get = function(options) {
         
-        webdav.report({
+        return webdav.report({
             url: options.url,
             user: options.user,
             passwd: options.passwd,
